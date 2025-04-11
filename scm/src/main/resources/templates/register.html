@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(content=~{::#content}, title=~{::title}, script=~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div id="content">
+   <div class="grid grid-cols-12">
+    <div class="col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5"></div>
+
+    <div class="col-span-10 md:col-span-8 lg:col-span-4 xl:col-span-5">  
+    
+
+<div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+    <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+
+<!-- Message Box -->
+
+<div th:if="${message}" th:replace="message :: messagebox"></div>
+
+
+
+
+
+    <form class="space-y-6" th:action="@{/do-register}" method="post" th:object="${userForm}" enctype="multipart/form-data" novalidate>
+       
+    
+        <!-- Username -->
+        <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
+            <input type="text" name="name" id="name" th:field="*{name}" required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Haulla baba" />
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-red-600 px-2 py-2"></p>
+
+        </div>
+    
+        <!-- Email -->
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your mail</label>
+            <input type="email" name="email" id="email" th:field="*{email}" required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Haulla1example@gmail.com" />
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 px-2 py-2"></p>
+        </div>
+    
+        <!-- Password -->
+        <div>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+            <input type="password" name="password" id="password" th:field="*{password}" required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="••••••••" />
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-600 px-2 py-2"></p>
+        </div>
+    
+        <!-- Phone -->
+        <div>
+            <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your phone number</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" th:field="*{phoneNumber}" required
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Enter 10-digit phone number"
+            inputmode="numeric"/>
+            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="text-red-600 px-2 py-2"></p>
+        
+        </div>
+    
+        <!-- Gender -->
+        <div>
+            <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">What is your Gender</label>
+            <select id="gender" name="gender" th:field="*{gender}"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+    
+        <!-- Profile Picture -->
+        <div>
+            <label for="profilePic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload file</label>
+            <input type="file" name="profilePic" id="profilePic"
+                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600" />
+        </div>
+    
+        <!-- Terms Checkbox -->
+        <div class="flex items-center mt-4 mb-4">
+            <input id="terms" name="terms" type="checkbox" required
+                class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600" />
+            <label for="terms" class="text-gray-500 dark:text-gray-300 ms-2 text-sm">I accept the
+                <a class="font-medium text-blue-600 hover:underline dark:text-blue-500" href="#">Terms and Conditions</a>
+            </label>
+        </div>
+    
+        <!-- Submit Button -->
+        <button type="submit"
+            class="w-full text-white bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 hover:shadow-[0px_1px_17px_4px_#a855f7] shadow-[inset_0px_1px_26px_-2px_#ffffff] ring-2 ring-purple-300 dark:focus:ring-purple-800 transition-all ease-in-out duration-500ms font-medium rounded-lg text-sm px-6 py-3 text-center mb-2">
+            Register Yourself
+        </button>
+    
+        <!-- Already Registered -->
+        <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+            Already Registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Log in</a>
+        </div>
+    </form>
+</div>
+    
+    </div>
+    </div>
+    <script>
+        console.log("about page")
+       </script>
+    </body>
+    </html>

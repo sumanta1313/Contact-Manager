@@ -1,0 +1,33 @@
+<!-- message.html -->
+<div 
+  th:if="${message}" 
+  id="alert-additional-content-1" 
+  th:class="'p-4 mb-4  border rounded-lg ' +
+             (${message.type} == 'green' or 'Registration successful! You can login now' ? 
+              'text-green-800 bg-green-50 border-green-300 dark:text-green-400 dark:bg-gray-800 dark:border-green-800' : 
+              (${message.type} == 'red' or 'Something gone wrong! This device is going to blast now . ALLAH HU AKBAR !!! ' ? 
+              'text-red-800 bg-red-50 border-red-300 dark:text-red-400 dark:bg-gray-800 dark:border-red-800' ))"
+  role="alert"
+  th:fragment="messagebox">
+
+  <div class="flex items-center">
+    <svg class="shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <span class="sr-only">Info</span>
+    <h3 class="text-lg font-medium">This is a info alert</h3>
+  </div>
+  <div class="mt-2 mb-4 text-sm" th:text="${message.content}">
+    Default message
+  </div>
+  <div class="flex">
+    <a href="login.html"><button type="button" class="text-white bg-slate-500 ring-2 ring-slate-600 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-2.5 me-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Log in
+    </button></a>
+    
+    <th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
+  </div>
+</div>
+
+
+  
