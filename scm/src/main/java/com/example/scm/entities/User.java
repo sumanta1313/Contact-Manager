@@ -2,8 +2,12 @@ package com.example.scm.entities;
 
 import java.util.*;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,7 +29,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 
-public class User {
+public class User implements UserDetails {
+
 
     @Id
      private String userId = UUID.randomUUID().toString();
@@ -34,12 +39,14 @@ public class User {
     
     @Column(unique = true,nullable = false)
     private String email;
+    @Getter(lombok.AccessLevel.NONE)
     private String password;
     @Column(length=10000)
     private String profilePic;
     private String gender;
     private String phoneNumber;
-    private boolean enabled=false;
+    @Getter(lombok.AccessLevel.NONE)
+    private boolean enabled=true;
     private boolean emailVerified=false;
     private boolean phoneVerified=false;
 
@@ -52,5 +59,74 @@ public class User {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Contact> contacts=new ArrayList<>();
 
-    
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roleList=new ArrayList<>(); // admin, user, superadmin, etc.
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
+        return Collections.emptyList();
+    }
+
+    @Override
+    public String getUsername() {
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
+
+        return this.email;
+    }
+
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+
+
+    // @Override
+    // public String getEmail() {
+    //     // TODO Auto-generated method stub
+    //     return email;
+    // }
+    // @Override
+    // public String getPhoneNumber() {
+    //     // TODO Auto-generated method stub
+    //     return phoneNumber;
+    // }
+    // @Override
+    // public String getProfilePic() {
+    //     // TODO Auto-generated method stub
+    //     return profilePic;
+    // }
+
+
+
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        return this.enabled;
+    }
+
+    @Override
+    public String getPassword() {
+        // TODO Auto-generated method stub
+        return this.password;
+    }
 }
