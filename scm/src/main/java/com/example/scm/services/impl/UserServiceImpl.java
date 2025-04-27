@@ -5,10 +5,12 @@ import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.scm.entities.Providers;
 import com.example.scm.entities.User;
+import com.example.scm.helpers.AppConstants;
 import com.example.scm.helpers.ResourceNotFoundException;
 import com.example.scm.repsitories.UserRepo;
 import com.example.scm.services.UserService;
@@ -18,6 +20,10 @@ import com.example.scm.services.UserService;
  
      @Autowired
      private UserRepo userRepo;
+
+
+     @Autowired
+     private PasswordEncoder passwordEncoder;
  
      private Logger logger = LoggerFactory.getLogger(this.getClass());
  
@@ -26,7 +32,18 @@ import com.example.scm.services.UserService;
          // Generate user ID
          String userId   = UUID.randomUUID().toString();
          user.setUserId(userId);
-     
+            // Encode password
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+
+        // set user role 
+
+
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
+
+        
+
          // Explicitly set default provider to SELF to avoid null
          user.setProvider(Providers.SELF); // set explicitly to avoid null
      

@@ -1,8 +1,11 @@
 package com.example.scm.entities;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
+import org.springframework.boot.autoconfigure.task.TaskExecutionProperties.Simple;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.CascadeType;
@@ -64,9 +67,11 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
-        return Collections.emptyList();
+    
+        // list of roles [USER, ADMIN]
+        // Collection of SimpleGrantedAuthority [roles{USER,ADMIN}]
+        Collection<SimpleGrantedAuthority> roles=roleList.stream().map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
+        return roles;
     }
 
     @Override
