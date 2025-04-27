@@ -21,12 +21,23 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class PageController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/")
+    public String index() {
+        System.out.println("Index page loading");
+        return "redirect:/home";
+    } 
+    
 
     @RequestMapping("/home")
     public String home(Model model) {
