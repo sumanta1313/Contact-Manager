@@ -52,12 +52,21 @@
                 <div class="text-green-600 text-center my-3" th:if="${param.logout}">
                     You have been logged out.
                 </div>
-                
+
                 <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
                     Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
                 </div>
             </form>
+
+            <!-- form ends here -->
+           
+             <div class="social-buttons-container flex justify-center mt-4 gap-4">
+                <a class="bg-blue-400 text-center text-white font-bold py-2 login-with-google-btn px-4 rounded-xl" data-th-href="@{'/oauth2/authorization/google'}">Login With Google</a>
+                <!-- <a class="bg-gray-600 text-center text-white font-bold py-2 login-with-google-btn px-4 rounded-xl" data-th-href="@{'/oauth2/authorization/github'}">Login With Github</a> -->
+
+
+             </div>
 
         </div>
             

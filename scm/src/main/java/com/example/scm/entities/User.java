@@ -134,4 +134,9 @@ public class User implements UserDetails {
         // TODO Auto-generated method stub
         return this.password;
     }
+
+    public void setPicture(String picture) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setPicture'");
+    }
 }
