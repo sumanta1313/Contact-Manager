@@ -65,11 +65,15 @@ public class PageController {
         return "contact";
     }
 
+    // this is showing the login page
+
     @GetMapping("/login")
     public String login() {
         System.out.println("Login page loading");
         return "login";
     }
+
+    // registation page
 
     @GetMapping("/register")
     public String register(Model model, HttpSession session) {

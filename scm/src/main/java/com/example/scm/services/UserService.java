@@ -25,6 +25,8 @@ import java.util.List;
      boolean isUserExistByEmail(String email);
  
      List<User> getAllUsers();
+
+     User getUserByEmail(String email);
  
      // add more methods here related user service[logic]
  

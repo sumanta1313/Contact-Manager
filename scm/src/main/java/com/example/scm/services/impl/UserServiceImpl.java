@@ -118,5 +118,13 @@ import com.example.scm.services.UserService;
      public List<User> getAllUsers() {
          return userRepo.findAll();
      }
+
+
+     @Override
+     public User getUserByEmail(String email) {
+            User user = userRepo.findByEmail(email).orElseThrow(null);
+            return user;
+        
+     }
  
  }
