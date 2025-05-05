@@ -10,7 +10,17 @@
 </head>
 <body>
     <div id="content">
-        <h1>This Is Our User Profile Page.</h1>
+        <!-- sidebar -->
+
+        
+
+<div th:if="${loggedInUser}">
+    <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+
+    
+    <div  class="sm:pl-64 pt-20" style="height:1000px;">
+        <h1 class="text-5xl">This Is Our User Profile Page.</h1>
     <h1 data-th-text="${loggedInUser.name}"></h1>
     <h1 data-th-text="${loggedInUser.email}"></h1>
 
@@ -21,6 +31,7 @@
     </div>
 
     </div>
+</div>
     <script>
         console.log("about page")
        </script>

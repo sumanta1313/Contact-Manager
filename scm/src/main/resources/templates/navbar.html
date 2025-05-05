@@ -17,15 +17,30 @@
         
         <!-- dark| light theme -->
         
-           <button id="theme_change" class="bg-gray-500 px-3 py-2 rounded transition-all 
+         
+        
+        <button id="theme_change" class="bg-gray-500 px-3 py-2 rounded transition-all 
            hover:drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] 
            dark:bg-gray-300 dark:text-slate-950 
            dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">
-            <i class="fa-regular fa-lightbulb dark:fa-solid fa-lightbulb"></i>
+            <i class="fa-regular fa-lightbulb text-white dark:fa-solid dark:text-black "></i>
         </button>
         
-        <a th:href="@{'/login'}" type="button" class="text-white bg-blue-400 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  dark:focus:ring-blue-800">login</a>
-        <a th:href="@{'/register'}" type="button" class="text-white bg-teal-400 hover:bg-teal-950 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  dark:focus:ring-blue-800">signin</a>
+      <!-- Login Button -->
+<a th:href="@{'/login'}" class="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+    <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+    <span class="relative">Login</span>
+</a>
+
+<!-- Register Button -->
+<a th:href="@{'/register'}" class="relative rounded px-5 py-2.5 overflow-hidden group bg-blue-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-blue-400 transition-all ease-out duration-300">
+    <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+    <span class="relative">Register</span>
+</a>
+
+        
+        <!-- <a th:href="@{'/login'}" type="button" class="text-white bg-blue-400 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  dark:focus:ring-blue-800">login</a> -->
+        <!-- <a th:href="@{'/register'}" type="button" class="text-white bg-teal-400 hover:bg-teal-950 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  dark:focus:ring-blue-800">signin</a> -->
         
      
         <!-- mobile menu  -->

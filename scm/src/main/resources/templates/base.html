@@ -21,11 +21,6 @@ xmlns:th="http://www.thymeleaf.org">
 <div data-th-replace="~{user/user_navbar :: user-navbar}"></div>
 </div>
 
-<!-- if user is logged in from phone : sidebar -->
-
-<div th:if="${loggedInUser}">
-<div data-th-replace="~{user/sidebar :: sidebar}"></div>
-</div>
 
 <!-- if user is not logged in -->
 

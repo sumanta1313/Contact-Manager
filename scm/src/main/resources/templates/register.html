@@ -16,7 +16,10 @@
     <div class="col-span-10 md:col-span-8 lg:col-span-4 xl:col-span-5">  
     
 
-<div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+        
+<div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 hover:border-blue-500 hover:shadow-[0px_1px_10px_2px] hover:shadow-blue-300 transition-shadow transition-scale duration-300 ease-in-out ">
+
 
     <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
 
@@ -32,7 +35,7 @@
        
     
         <!-- Username -->
-        <div>
+        <div class="text-left">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
             <input type="text" name="name" id="name" th:field="*{name}" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -42,7 +45,7 @@
         </div>
     
         <!-- Email -->
-        <div>
+        <div class="text-left">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your mail</label>
             <input type="email" name="email" id="email" th:field="*{email}" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -51,7 +54,7 @@
         </div>
     
         <!-- Password -->
-        <div>
+        <div class="text-left">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
             <input type="password" name="password" id="password" th:field="*{password}" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -60,7 +63,7 @@
         </div>
     
         <!-- Phone -->
-        <div>
+        <div class="text-left">
             <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your phone number</label>
             <input type="tel" name="phoneNumber" id="phoneNumber" th:field="*{phoneNumber}" required
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -71,7 +74,7 @@
         </div>
     
         <!-- Gender -->
-        <div>
+        <div class="text-left">
             <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">What is your Gender</label>
             <select id="gender" name="gender" th:field="*{gender}"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -82,7 +85,7 @@
         </div>
     
         <!-- Profile Picture -->
-        <div>
+        <div class="text-left">
             <label for="profilePic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload file</label>
             <input type="file" name="profilePic" id="profilePic"
                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600" />
@@ -98,10 +101,15 @@
         </div>
     
         <!-- Submit Button -->
-        <button type="submit"
-            class="w-full text-white bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 hover:shadow-[0px_1px_17px_4px_#a855f7] shadow-[inset_0px_1px_26px_-2px_#ffffff] ring-2 ring-purple-300 dark:focus:ring-purple-800 transition-all ease-in-out duration-500ms font-medium rounded-lg text-sm px-6 py-3 text-center mb-2">
-            Register Yourself
+        
+
+        <button type="submit" class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-extrabold tracking-tighter text-black bg-gray-200 dark:text-white dark:bg-gray-500 rounded-lg group">
+            <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
+            <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
+            <span class="relative">Register Yourself</span>
         </button>
+        
+            
     
         <!-- Already Registered -->
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
