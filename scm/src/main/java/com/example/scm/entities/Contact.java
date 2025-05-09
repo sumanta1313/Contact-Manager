@@ -36,6 +36,8 @@ import lombok.Getter;
      private boolean favorite = false;
      private String websiteLink;
      private String linkedInLink;
+     private String facebookLink;
+     private String instaLink;
      // private List<String> socialLinks=new ArrayList<>();
  
      @ManyToOne

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(content=~{::#content}, title=~{::title}, script=~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th-text="${loggedinUser.name}+'| SCM">Add contacts page</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    
+    
+        
+</head>
+<body>
+    <div id="content">
+        <!-- sidebar -->
+
+        
+
+<div th:if="${loggedInUser}">
+    <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+
+    
+    <div  class="sm:pl-64 pt-20" style="height:1000px;">
+       <div class="grid grid-cols-12"> 
+        
+            <div class="col-span-12 md:col-span-8 lg:col-span-12 mx-auto ">
+                <div class="card mb-10 w-full max-w-3xl p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            
+            <h1 class="text-3xl font-semibold">Add new contacts</h1>
+            <p class="text-gray-500">This contact will be stored on cloud,you can direct email this client from Accord</p>
+            
+           
+<form data-th-action="@{'/user/contact/add'}" data-th-object="${contactForm}" method="post" class="max-w-lg mt-8 mx-auto" enctype="multipart/form-data">
+    <!-- Name -->
+    <div class="mb-3">
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Name</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-user"></i>
+      </span>
+      <input th:field="*{name}" type="text"  class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonnie Green">
+    </div>
+</div>  
+<!-- Email -->
+<div class="mb-3">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Email</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-envelope"></i>
+      </span>
+      <input type="email" th:field="*{email}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonnie@Green.com">
+    </div>
+</div>
+<!-- Phone number -->
+<div class="mb-3">
+    <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-phone"></i>
+      </span>
+      <input type="tel" th:field="*{phoneNumber}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1234567890">
+    </div>
+</div>
+<!-- Adress -->
+ <div class="mb-3">
+    <label for="adress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Adress</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-location-dot"></i>
+      </span>
+      <textarea th:field="*{address}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your Adress here..."></textarea>
+    </div>
+    </div>
+<!-- Description -->
+<div class="mb-3">
+    <label for="Description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Description</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-book"></i>
+      </span>
+      <textarea th:field="*{description}" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write about them..."></textarea>
+    </div>
+    </div>
+<!-- social links -->
+    <div class="flex">
+        <!-- 1st row -->
+        <div class="w-full mr-2">
+            <!-- Facebook -->
+<div class="mb-3">
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-brands fa-facebook"></i>
+      </span>
+      <input type="text" th:field="*{facebookLink}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Facebook URL">
+    </div>
+</div>
+        </div>
+        <div class="w-full">
+            <!-- Website -->
+<div class="mb-3">
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-solid fa-globe"></i>
+      </span>
+      <input type="text" th:field="*{websiteLink}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Website URL">
+    </div>
+</div>
+        </div>
+        </div>
+        
+
+    <div class="flex">
+        <!-- 2nd row -->
+        <div class="w-full mr-2">
+            <!-- instagram -->
+<div class="mb-3">
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-brands fa-instagram"></i>
+      </span>
+      <input type="text" th:field="*{instaLink}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Instagram URL">
+    </div>
+</div>
+        </div>
+        <div class="w-full">
+            <!-- linkedin -->
+<div class="mb-3">
+    <div class="flex">
+      <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+        <i class="fa-brands fa-linkedin"></i>
+      </span>
+      <input type="text" th:field="*{linkedInLink}" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="LinkedIn URL">
+    </div>
+</div>
+        </div>
+        </div>
+
+       
+          
+<div class="flex justify-center ">
+    <div class="w-[300px] h-[300px] rounded-lg shadow-lg flex flex-col justify-between items-center p-3 gap-2 bg-[rgba(0,110,255,0.041)]">
+  
+        <!-- Header -->
+        <div class="flex flex-col justify-center items-center w-full flex-1 border-2 border-dashed border-blue-500 rounded-lg">
+          <svg class="h-24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="text-black text-center">Browse File to upload!</p>
+        </div>
+      
+        <!-- Footer -->
+        <label for="file" class="flex items-center justify-end w-full h-10 px-2 rounded-lg bg-[rgba(0,110,255,0.075)] cursor-pointer text-black">
+          <svg class="h-full fill-blue-500 bg-gray-200 rounded-full p-0.5 shadow-md mr-2" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.331 6H8.5v20h15V14.154h-8.169z"/>
+            <path d="M18.153 6h-.009v5.342H23.5v-.002z"/>
+          </svg>
+          <p class="flex-1 text-center">Select a file</p>
+          <svg class="h-full ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"/>
+            <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"/>
+          </svg>
+        </label>
+      
+        <!-- Hidden file input -->
+        <input  type="file" class="hidden" />
+      </div>
+      
+</div>
+
+ <!-- favourite -->
+ <div class="transform scale-50 ">
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" th:field="*{favorite}" value="" class="sr-only peer">
+        <div class="group peer ring-0 bg-rose-400  rounded-full outline-none duration-300 after:duration-300 w-24 h-12  shadow-md peer-checked:bg-emerald-500  peer-focus:outline-none  after:content-[''] after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-10 after:w-10 after:top-1 after:left-1 after:flex after:justify-center after:items-center peer-checked:after:translate-x-12 peer-hover:after:scale-95">
+            <i class="fas fa-heart p-2 text-3xl"></i>
+            <i class="fa-solid fa-heart-crack p-2 text-3xl"></i>
+        </div>
+        <p class="ml-20 transform scale-150">Is this person your favourite one ?</p>  
+    </label>
+      
+</div>         
+
+<!-- Tailwind CSS version -->
+ <div class="flex justify-center">
+<button type="submit" class="relative overflow-hidden px-5 py-2 text-white font-bold text-sm rounded-full border-2 border-white/30 bg-[rgb(0,107,179)] shadow-[0_10px_20px_rgba(0,0,0,0.2)] flex items-center gap-2 transition-transform duration-300 ease-in-out hover:scale-105 hover:border-white/60 group">
+    Add contact
+    <svg class="w-6 h-6 transition-transform duration-300 ease-in-out group-hover:translate-x-1" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        fill-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+    <span class="absolute inset-0 before:absolute before:w-[100px] before:h-full before:top-0 before:-left-24 before:opacity-60 before:bg-gradient-to-r before:from-transparent before:via-white before:to-transparent group-hover:before:animate-shine"></span>
+  </button>
+  </div>
+
+</form>
+  
+  
+        </div>
+    </div></div></div></div>
+    <h1 data-th-text="${loggedInUser.name}"></h1>
+    <h1 data-th-text="${loggedInUser.email}"></h1>
+
+    <!-- jodi user logged in ache tahole -->
+    
+
+    </div>
+</div>
+    <script>
+        console.log("about page")
+       </script>
+    
+    <!-- flowbite content -->
+     
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+     <!-- flowbite content end-->
+</body>
+</html>
