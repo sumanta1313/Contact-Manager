@@ -1,8 +1,4 @@
 package com.example.scm.config;
-
-
-
-
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;

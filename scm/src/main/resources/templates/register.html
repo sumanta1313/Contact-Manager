@@ -9,17 +9,16 @@
     
 </head>
 <body>
-    <div id="content">
-   <div class="grid grid-cols-12">
-    <div class="col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5"></div>
+    <div id="content" class="min-h-screen grid items-center">
+        <div class="col-span-12 flex justify-center">
 
-    <div class="col-span-10 md:col-span-8 lg:col-span-4 xl:col-span-5">  
-    
+      <!-- Gradient Border Wrapper -->
+      <div class="relative rounded-[20px] p-[2px] bg-[conic-gradient(at_top_left,_#FFFF00,_#FF3036)] hover:shadow-[0_0_30px_1px_rgba(255,126,95,0.4)] transition-all duration-300">
 
 
-        
-<div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 hover:border-blue-500 hover:shadow-[0px_1px_10px_2px] hover:shadow-blue-300 transition-shadow transition-scale duration-300 ease-in-out ">
-
+    <!-- Inner Card -->
+    <div class="rounded-[18px] bg-gray-50 dark:bg-gray-900 w-[25rem] p-6 sm:p-8 transition-transform transform hover:scale-[0.98]">
+  
 
     <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
 
@@ -103,8 +102,8 @@
         <!-- Submit Button -->
         
 
-        <button type="submit" class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-extrabold tracking-tighter text-black bg-gray-200 dark:text-white dark:bg-gray-500 rounded-lg group">
-            <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
+        <button type="submit" class="relative hover:shadow-[0px_4px_10px] hover:shadow-green-500 inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-extrabold tracking-tighter text-black bg-gray-200 dark:text-white dark:bg-gray-500 rounded-lg group">
+            <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56 "></span>
             <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
             <span class="relative">Register Yourself</span>
         </button>
@@ -123,5 +122,6 @@
     <script>
         console.log("about page")
        </script>
+       <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>
     </html>
