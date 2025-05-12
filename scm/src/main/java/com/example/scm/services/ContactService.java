@@ -3,6 +3,10 @@ package com.example.scm.services;
 import java.util.List;
 
 import com.example.scm.entities.Contact;
+import com.example.scm.entities.User;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ContactService {
 // save contact
@@ -25,4 +29,5 @@ public interface ContactService {
 
     // get all contacts by user id
     List<Contact> getByUserId(String userId);
+    List<Contact> getByUser(User user);
 }
