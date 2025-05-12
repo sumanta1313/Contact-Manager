@@ -1,3 +1,6 @@
+@import 'flowbite';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 .login-with-google-btn {
     transition: background-color .3s, box-shadow .3s;
       

@@ -1,38 +1,37 @@
-console.log("script loaded")
+console.log("script loaded");
 
-// change theme 
+// Get theme from local storage or default to light
+let currentTheme = getTheme();
+applyTheme(currentTheme);
 
-let currentTheme = gettheme();
-changetheme(currentTheme)
-//todo:
-function changetheme(){
-    // set to web page
-    document.querySelector('html').classList.add(currentTheme)
-// set a listner to the button
-const changetheme=document.querySelector('#theme_change');
-changetheme.addEventListener("click",(event) => {
-   const oldtheme = currentTheme;
-    if (currentTheme === "dark"){
-        currentTheme="light";
-    }else{
-currentTheme="dark";
-    }
-
-// remove the old theme 
-document.querySelector('html').classList.remove(oldtheme);
-    // updating to local storage
-    settheme(currentTheme);
-    document.querySelector('html').classList.add(currentTheme);
-});
-}
-    // set theeme to local storage
-function settheme(theme){
-    localStorage.setItem("theme",theme);
-}
-// get theme from local storage
-function gettheme(){
-    let theme=localStorage.getItem("theme");
-    if (theme) return theme;
-    else return "light";
+// Function to apply the current theme
+function applyTheme(theme) {
+    document.querySelector('html').classList.add(theme);
 }
 
+// Listen for theme toggle button click
+const changeThemeBtn = document.querySelector('#theme_change');
+if (changeThemeBtn) {
+    changeThemeBtn.addEventListener("click", () => {
+        const oldTheme = currentTheme;
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+
+        // Update the HTML tag
+        document.querySelector('html').classList.remove(oldTheme);
+        document.querySelector('html').classList.add(currentTheme);
+
+        // Save to local storage
+        setTheme(currentTheme);
+    });
+}
+
+// Save theme to local storage
+function setTheme(theme) {
+    localStorage.setItem("theme", theme);
+}
+
+// Get theme from local storage
+function getTheme() {
+    let theme = localStorage.getItem("theme");
+    return theme ? theme : "light";
+}
