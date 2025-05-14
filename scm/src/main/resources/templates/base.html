@@ -16,7 +16,24 @@ xmlns:th="http://www.thymeleaf.org">
 
     <!-- common header -->
 
-    <div data-th-replace="navbar :: navbar"></div>
+    <!-- if user is logged in -->
+<div th:if="${loggedInUser}">
+<div data-th-replace="~{user/user_navbar :: user-navbar}"></div>
+</div>
+
+
+<!-- if user is not logged in -->
+
+<div th:unless="${loggedInUser}">
+
+<div data-th-replace="~{navbar :: navbar}"></div>
+
+</div>
+
+
+
+
+    
     
     <div class="p-4">
         <section th:replace="${content}">Default Content</section>
@@ -31,5 +48,6 @@ xmlns:th="http://www.thymeleaf.org">
 
 <script th:src="@{'/js/script.js'}"></script>
     <th:replace="${script}"></th:block>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 </html>

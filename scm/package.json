@@ -12,6 +12,12 @@
   "dependencies": {
     "tailwindcss": "^3.4.17"
   },
+<<<<<<< HEAD
   "devDependencies": {},
   "description": ""
+=======
+  "dependencies": {
+    "flowbite": "^3.1.2"
+  }
+>>>>>>> c8d149293b88c3d4ef7add45893e0024ead1c37d
 }

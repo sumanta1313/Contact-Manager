@@ -1,0 +1,137 @@
+
+
+
+
+
+
+    <nav th:fragment="user-navbar" class="bg-white border-gray-200 shadow-sm dark:bg-gray-900 sm:pl-64 fixed w-full top-0 left-0 right-0 ">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        
+            <!-- Brand logo -->
+        
+            <a th:href="@{home}" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img data-th-src="@{'/images/logo.png'}" class="h-8 " alt="scm Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap  text-black dark:text-white">SCM</span>
+        </a>
+    
+        <!-- end Brand logo -->
+    
+        <!-- buttons -->
+        <div class="flex  gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            
+            <!-- dark| light theme -->
+            
+               <button id="theme_change" class="bg-gray-500 px-3 py-2 rounded transition-all 
+               hover:drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] 
+               dark:bg-gray-300 dark:text-slate-950 
+               dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">
+                <i class="fa-regular fa-lightbulb dark:fa-solid fa-lightbulb"></i>
+            </button>
+            
+            <!-- drawer init and show -->
+            <div class="text-center p-2 lg:hidden">
+                <a  class="relative  transform scale-125 inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                  <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                  </span>
+                  <span
+                    class="absolute flex items-center  -z-10 justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease"><i class="fa-solid fa-compass"></i></span>
+                  <span class="relative invisible"></span>
+                </a>
+              </div>
+
+              
+              
+                
+              <a th:href="@{'/user/profile'}"
+              class="hidden md:flex box-border relative z-30 items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none">
+           
+                <span class="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                <span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                <span class="relative z-20 flex items-center text-sm">
+                    <!-- <svg class="relative w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <!-- </svg> -->
+                    <span data-th-text="${loggedInUser.name}"></span>
+                </span>
+            </a>
+            
+             
+            <a th:href="@{'/do-logout'}" class="relative inline-flex items-center justify-center inline-block p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
+                <span class="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease"></span>
+                <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
+                    <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
+                    <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
+                </span>
+                <span class="relative text-white">Logout</span>
+            </a>
+            
+            
+            
+         
+           <!-- Mobile menu button -->
+           <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+    </div>
+    
+        <!-- end buttons -->
+    
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+          <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+                <a th:href="@{/home}" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Home</a>
+            </li>
+            <li>
+                <a th:href="@{/about}" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            </li>
+            <li>
+                <a th:href="@{/services}" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+            </li>
+            <li>
+                <a th:href="@{/contact}" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+            </li>
+            
+            <li>
+                <a th:href="@{'/user/profile'}"
+                   class="block md:hidden box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none">
+                    <span class="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                    <span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+                    <span class="relative z-20 flex items-center text-sm">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <span data-th-text="${loggedInUser.name}"></span>
+                    </span>
+                </a>
+            </li>
+            
+    <!--
+            <a th:href="@{'/do-logout'}" class="relative inline-flex items-center justify-center inline-block p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
+                <span class="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease"></span>
+                <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
+                    <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
+                    <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
+                </span>
+                <span class="relative text-white">Logout</span>
+            </a>
+        </li> -->
+
+        
+
+           
+          </ul>
+        </div>
+        </div>
+      </nav>
+      
+      <!-- ✅ Flowbite JS for menu toggle to work -->
+      <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+      
+    
+
