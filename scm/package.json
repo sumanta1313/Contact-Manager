@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
+=======
+  "description": "",
+>>>>>>> 55e0767e70838623f7b5cb20fc96c2b7009dc7c5
   "dependencies": {
     "tailwindcss": "^3.4.17"
   },

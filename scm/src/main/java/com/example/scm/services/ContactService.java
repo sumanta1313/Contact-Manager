@@ -30,4 +30,8 @@ public interface ContactService {
     // get all contacts by user id
     List<Contact> getByUserId(String userId);
     Page<Contact> getByUser(User user, int page, int size, String sortField, String sortdirection);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 55e0767e70838623f7b5cb20fc96c2b7009dc7c5
