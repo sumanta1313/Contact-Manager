@@ -29,5 +29,5 @@ public interface ContactService {
 
     // get all contacts by user id
     List<Contact> getByUserId(String userId);
-    List<Contact> getByUser(User user);
+    Page<Contact> getByUser(User user, int page, int size, String sortField, String sortdirection);
 }

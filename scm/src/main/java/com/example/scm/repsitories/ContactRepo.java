@@ -15,7 +15,7 @@ import com.example.scm.entities.User;
 @Repository
 public interface ContactRepo extends JpaRepository<Contact, String> {
 // find the contact by user id
-    List<Contact> findByUser(User user);
+    Page<Contact> findByUser(User user,Pageable pageable);
 
    @Query("SELECT c FROM Contact c WHERE c.user.id = :userId")
    List<Contact> findByUserId(@Param("userId")String userId);

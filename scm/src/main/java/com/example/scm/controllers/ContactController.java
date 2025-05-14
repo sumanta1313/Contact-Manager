@@ -130,7 +130,7 @@ contact.setCloudinaryImagePublicId(filename);
 @RequestMapping
     public String viewContacts(
             @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "size", defaultValue = AppConstants.PAGE_SIZE + "") int size,
+            @RequestParam(value = "size", defaultValue = AppConstants.PAGE_SIZE+"") int size,
             @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
             @RequestParam(value = "direction", defaultValue = "asc") String direction, Model model,
             Authentication authentication) {
@@ -140,12 +140,14 @@ contact.setCloudinaryImagePublicId(filename);
 
         User user = userService.getUserByEmail(username);
 
-        List<Contact> contacts = contactService.getByUser(user);
+        Page<Contact> pageContact = contactService.getByUser(user, page, size, sortBy, direction);
+        
 
-        model.addAttribute("contacts", contacts);
+        
+        model.addAttribute("pageContact", pageContact);
         model.addAttribute("pageSize", AppConstants.PAGE_SIZE);
 
+        
         return "user/contacts";
     }
 }
-
