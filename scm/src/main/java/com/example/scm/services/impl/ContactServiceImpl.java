@@ -52,7 +52,11 @@ public class ContactServiceImpl implements ContactService {
         contactRepo.delete(contact);
     }
 
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
 
     @Override
     public List<Contact> getByUserId(String userId) {
@@ -72,14 +76,24 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Page<Contact> searchByName(String nameKeyword, int size, int page, String sortBy, String order, User user) {
+<<<<<<< HEAD
 
         Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
         var pageable = PageRequest.of(page, size, sort);
         return contactRepo.findByUserAndNameContaining(user,nameKeyword,pageable);
+=======
+        
+        
+        Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        var pageable = PageRequest.of(page, size, sort);
+        return contactRepo.findByUserAndNameContaining(user, nameKeyword, pageable);
+                
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
     }
 
     @Override
     public Page<Contact> searchByEmail(String emailKeyword, int size, int page, String sortBy, String order, User user) {
+<<<<<<< HEAD
          Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
         var pageable = PageRequest.of(page, size, sort);
         return contactRepo.findByUserAndEmailContaining(user,emailKeyword,pageable);
@@ -93,6 +107,23 @@ public class ContactServiceImpl implements ContactService {
         return contactRepo.findByUserAndPhoneNumberContaining(user,phoneNumberKeyword,pageable);
     }
 
+=======
+        Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        var pageable = PageRequest.of(page, size, sort);
+        return contactRepo.findByUserAndEmailContaining(user, emailKeyword, pageable);
+    }
+
+    @Override
+    public Page<Contact> searchByPhoneNumber(String phoneNumberKeyword, int size, int page, String sortBy, String order, User user) {
+        
+                
+        Sort sort = order.equals("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        var pageable = PageRequest.of(page, size, sort);
+        return contactRepo.findByUserAndPhoneNumberContaining(user, phoneNumberKeyword, pageable);
+    }
+
+    
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
 }
 
    

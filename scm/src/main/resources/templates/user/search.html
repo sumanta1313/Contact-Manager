@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(content=~{::#content}, title=~{::title}, script=~{::script})}">
+<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -10,10 +11,21 @@
 
 </head>
 
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Contacts</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    
+</head>
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
 <body>
     <div id="content">
         <!-- sidebar -->
 
+<<<<<<< HEAD
 
 
         <div th:if="${loggedInUser}">
@@ -28,29 +40,67 @@
 
 
                 <div class="contacts_container mt-4">
+=======
+        
+
+<div th:if="${loggedInUser}">
+    <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+
+    
+    <div  class="sm:pl-64 pt-20" style="height:1000px;">
+        <h1 class="text-5xl">Search Result.</h1>
+    <h1 data-th-text="${loggedInUser.name}"></h1>
+    <h1 data-th-text="${loggedInUser.email}"></h1>
+    <p data-th-text="${pageContact.totalElements}+' Results found' "></p>
+
+    <!-- jodi user logged in ache tahole -->
+    <div th:if="${loggedInUser}">
+        <h1>User Is Logged in </h1>
+        <h1>This Is User Logged In Section</h1>
+    </div>
+
+    <div class="contacts_container mt-4">
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
 
 
                     <div
                         class="relative border-2 border-gray-300  bg-gray-100  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50  rounded-[50px] overflow-x-auto shadow-md sm:rounded-lg">
+<<<<<<< HEAD
                         <form data-th-action="@{/user/contact/search}">
                             <div
+=======
+                        <form data-th-object="${contactSearchForm}" data-th-action="@{/user/contact/search}" method="get">
+                            <div 
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                             class="flex space-x-3  p-5 items-center justify-start flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
                             
 
                             <!-- select box -->
                             <div>
+<<<<<<< HEAD
                                 
                                 <select    name="field" id="field"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option selected>Select Field</option>
+=======
+ 
+                                <select data-th-field="*{field}" name="field" id="countries_disabled"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected value="">Select Field</option>
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                     <option value="name">Name</option>
                                     <option value="phone">Phone</option>
                                     <option value="email">Email</option>
                                 </select>
                             </div>
 
+<<<<<<< HEAD
                             
                                 <label for="table-search" class="sr-only">Search</label>
+=======
+                            <label for="table-search" class="sr-only">Search</label>
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                             <div class="relative">
                                 <div
                                     class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -59,16 +109,25 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                     </svg>
+<<<<<<< HEAD
                             </div>
                                 
                                 <input  type="text" name="keyword" id="table-search-users"
+=======
+                                </div>
+                                <input data-th-field="*{value}"  type="text" id="table-search-users"
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                     class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Search for users">
                             </div>
                             <button type="submit" class="px-3 py-2 bg-gray-700 text-white rounded-lg">Search</button>
                         </div>
                         </form>
+<<<<<<< HEAD
                         <table
+=======
+                        <table data-th-if="${pageContact.totalElements > 0}"
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                             class="w-full rounded-[25px] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -126,6 +185,7 @@
                                         </div>
                                     </td>
 
+<<<<<<< HEAD
                                     <td class="px-2 py-4 ">
                                         <div class="flex gap-5">
                                          <a th:href="*{facebookLink}"
@@ -178,29 +238,84 @@
                                     </td>
 
 
+=======
+                                    <td class="px-2 py-4">
+                                        <a th:href="*{facebookLink}"
+                                            class="text-gray-500 hover:text-blue-700 dark:text-gray-100 transition-transform duration-300 ease-in-out hover:scale-125"
+                                            title="Facebook">
+                                            <i class="fa-brands fa-facebook"></i>
+                                        </a>
+                                        <a th:href="*{linkedInLink}"
+                                            class="text-gray-500 hover:text-blue-500 dark:text-gray-100 transition-transform duration-300 ease-in-out hover:scale-125"
+                                            title="LinkedIn">
+                                            <i class="fa-brands fa-linkedin"></i>
+                                        </a>
+                                        <a th:href="*{instaLink}"
+                                            class="text-gray-500 hover:text-pink-600 dark:text-gray-100 transition-transform duration-300 ease-in-out hover:scale-125"
+                                            title="Instagram">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                        <a th:href="*{websiteLink}"
+                                            class="text-gray-500 hover:text-blue-400 dark:text-gray-100 transition-transform duration-300 ease-in-out hover:scale-125"
+                                            title="Website">
+                                            <i class="fa-solid fa-globe"></i>
+                                        </a>
+                                    </td>
+                                    <td class="px-2 py-4">
+                                        <div class="flex gap-3">
+                                            <a href="#"
+                                                class="border-2  rounded-full text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 hover:shadow-inner hover:shadow-blue-200 transition-all duration-300 ease-in-out hover:scale-125"
+                                                title="Edit">
+                                                <i class="fa-solid fa-user-pen m-3"></i>
+                                            </a>
+                                            <a href="#"
+                                                class="border-2 rounded-full text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-200 hover:shadow-inner hover:shadow-red-400 transition-all duration-300 ease-in-out hover:scale-125"
+                                                title="Delete">
+                                                <i class="fa-solid fa-trash m-3"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                 </tr>
 
                             </tbody>
                         </table>
 
                         <!-- pagination component -->
+<<<<<<< HEAD
                         <div class="pagination_container bg-white dark:bg-gray-800 p-3 text-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="inline-flex -space-x-px text-base h-10">
                                     <li data-th-unless="${pageContact.first}" >
                                         <a data-th-href="@{'/user/contact?size='+${pageSize}+'page='+${pageContact.number-1}}" href="#"
+=======
+                        <div data-th-if="${pageContact.totalElements > 0}" class="pagination_container bg-white dark:bg-gray-800 p-3 text-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="inline-flex -space-x-px text-base h-10">
+                                    <li data-th-unless="${pageContact.first}" >
+                                        <a data-th-href="@{'/user/contact/search?size='+${pageSize}+'page='+${pageContact.number-1}+'&field='+${contactSearchForm.field}+'&value='+${contactSearchForm.value}+'}" href="#"
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                             class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
                                     </li>
 
 
                                     <li data-th-each="index:${#numbers.sequence(0,pageContact.totalPages-1) }">
+<<<<<<< HEAD
                                         <a data-th-href="@{'/user/contact?size='+${pageSize}+'&page='+${index}}" href="#" data-th-classappend="${index==pageContact.number ? 'bg-blue-500 dark:bg-gray-600 text-gray-800': 'bg-white  dark:bg-gray-800'}"
+=======
+                                        <a data-th-href="@{'/user/contact/search?size='+${pageSize}+'&page='+${index}+'&field='+${contactSearchForm.field}+'&value='+${contactSearchForm.value}+'}" href="#" data-th-classappend="${index==pageContact.number ? 'bg-blue-500 dark:bg-gray-600 text-gray-800': 'bg-white  dark:bg-gray-800'}"
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                             class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><span data-th-text="${index+1}"></span></a>
                                     </li>
 
                                     
                                     <li data-th-unless="${pageContact.last}" >
+<<<<<<< HEAD
                                         <a data-th-href="@{'/user/contact?size='+${pageSize}+'page='+${pageContact.number+1}}" href="#"
+=======
+                                        <a data-th-href="@{'/user/contact/search?size='+${pageSize}+'&page='+${pageContact.number+1}+'&field='+${contactSearchForm.field}+'&value='+${contactSearchForm.value}+'}" href="#"
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                                             class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
                                     </li>
                                 </ul>
@@ -208,10 +323,16 @@
 
                         </div>
 
+<<<<<<< HEAD
+=======
+                        <h1 class="text-5xl text-center " data-th-if="${pageContact.totalElements<=0}">No Results Found.</h1>
+
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
                     </div>
 
                 </div>
 
+<<<<<<< HEAD
             </div>
         </div>
     </div>
@@ -227,4 +348,19 @@
     <!-- flowbite content end-->
 </body>
 
+=======
+    </div>
+</div>
+    <script>
+        console.log("about page")
+       </script>
+    
+    <!-- flowbite content -->
+     
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+
+     <!-- flowbite content end-->
+</body>
+>>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
 </html>
