@@ -153,7 +153,7 @@ contact.setCloudinaryImagePublicId(filename);
         return "user/contacts";
     }
 
-<<<<<<< HEAD
+
     // search contacts
     @RequestMapping("/search")
     public String searchHandler(
@@ -183,7 +183,7 @@ var user=userService.getUserByEmail(Helper.getEmailOfLoggedInUser(authentication
         logger.info("pageContact {}", pageContact);
         model.addAttribute("pageContact", pageContact);
 
-=======
+
 
     // search handler
     @GetMapping("/search")
@@ -223,7 +223,7 @@ var user=userService.getUserByEmail(Helper.getEmailOfLoggedInUser(authentication
         model.addAttribute("pageSize", AppConstants.PAGE_SIZE);
 
         
->>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
+
 
         return "user/search";
     }

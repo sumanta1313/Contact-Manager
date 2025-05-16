@@ -25,18 +25,18 @@ public interface ContactService {
     void deleteById(String id);
 
     // search contact by name
-<<<<<<< HEAD
+
     Page<Contact> searchByName(String nameKeyword,int size,int page,String sortBy,String order,User user);
     Page<Contact> searchByEmail(String emailKeyword,int size,int page,String sortBy,String order,User user);
     Page<Contact> searchByPhoneNumber(String phoneNumberKeyword,int size,int page,String sortBy,String order,User user);
-=======
+
     Page<Contact> searchByName(String nameKeyword, int size, int page, String sortBy, String order, User user);
     Page<Contact> searchByEmail(String emailKeyword, int size, int page, String sortBy, String order, User user);
     Page<Contact> searchByPhoneNumber(String phoneNumberKeyword, int size, int page, String sortBy, String order, User user);
     
 
 
->>>>>>> 31c14877424266b09d49b273de4698199e8ed3c0
+
 
     // get all contacts by user id
     List<Contact> getByUserId(String userId);
