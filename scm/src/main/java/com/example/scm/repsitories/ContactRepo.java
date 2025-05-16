@@ -29,8 +29,6 @@ Page<Contact> findByUserAndPhoneNumberContaining(User user,String phonekeyword, 
 
 
 
-    Page<Contact> findByUserAndNameContaining(User user, String nameKeyword, Pageable pageable);
-    Page<Contact> findByUserAndEmailContaining(User user, String emailKeyword, Pageable pageable);
-    Page<Contact> findByUserAndPhoneNumberContaining(User user, String phoneNumberKeyword, Pageable pageable);
+    
 
 }
