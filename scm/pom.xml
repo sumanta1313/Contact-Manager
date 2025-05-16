@@ -101,8 +101,8 @@
 			<version>6.4.5</version>
 		</dependency>
 
-<<<<<<< HEAD
-=======
+
+
 		<dependency>
     <groupId>com.cloudinary</groupId>
     <artifactId>cloudinary-http5</artifactId>
@@ -120,7 +120,7 @@
 </dependency>
 
 		
->>>>>>> 55e0767e70838623f7b5cb20fc96c2b7009dc7c5
+
 
 	</dependencies>
 
